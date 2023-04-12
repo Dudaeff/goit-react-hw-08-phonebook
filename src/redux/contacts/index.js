@@ -1,2 +1,2 @@
-export { fetchContacts, deleteContact, addContact } from './contactsOperations';
-export { contactsReducer } from './contactsSlice';
+export { fetchContacts, deleteContact, addContact } from './operations';
+export { contactsReducer } from './slice';
