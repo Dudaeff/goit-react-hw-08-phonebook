@@ -10,7 +10,7 @@ const selectError = state => state.contacts.error;
 const selectVisibleContacts = createSelector(
   [selectContacts, selectFilterValue],
   (contacts, filter) => {
-    return contacts.filter(({ name }) =>
+    return contacts?.filter(({ name }) =>
       name.toLowerCase().includes(filter.toLowerCase())
     );
   }

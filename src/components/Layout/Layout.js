@@ -1,15 +1,15 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Wrapprer } from './Layout.styled';
 import { AppBar } from 'components/AppBar/AppBar';
+import { Wrapper } from './Layout.styled';
 
 export const Layout = () => {
   return (
-    <Wrapprer>
+    <Wrapper>
       <AppBar />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-    </Wrapprer>
+    </Wrapper>
   );
 };

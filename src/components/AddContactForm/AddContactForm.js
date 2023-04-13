@@ -1,32 +1,36 @@
 import { useDispatch } from 'react-redux';
-import { useContacts } from 'hooks';
+import PropTypes from 'prop-types';
 import { addContact } from 'redux/contacts';
-import { Button, Form, Label } from './ContactForm.styled';
+import { useContacts } from 'hooks';
 
-export const ContactForm = () => {
+export const AddContactForm = ({ closeOnSubmit }) => {
   const dispatch = useDispatch();
   const contacts = useContacts();
 
   const handleFormSubmit = evt => {
     evt.preventDefault();
     const form = evt.currentTarget;
-    const name = form.elements.name.value;
-    const phone = form.elements.phone.value;
-
     const isAlreadyInContacts = contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
+      contact =>
+        contact.name.toLowerCase() === form.elements.name.value.toLowerCase()
     );
 
     if (isAlreadyInContacts)
       return alert('This contact is already in your contacts.');
 
-    dispatch(addContact({ name, phone }));
+    dispatch(
+      addContact({
+        name: form.elements.name.value,
+        number: form.elements.number.value,
+      })
+    );
+    closeOnSubmit();
     form.reset();
   };
 
   return (
-    <Form onSubmit={handleFormSubmit}>
-      <Label>
+    <form onSubmit={handleFormSubmit}>
+      <label>
         Name
         <input
           type="text"
@@ -35,18 +39,22 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </Label>
-      <Label>
+      </label>
+      <label>
         Number
         <input
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </Label>
-      <Button type="submit">Add contact</Button>
-    </Form>
+      </label>
+      <button type="submit">Add contact</button>
+    </form>
   );
+};
+
+AddContactForm.propTypes = {
+  closeOnSubmit: PropTypes.func.isRequired,
 };
