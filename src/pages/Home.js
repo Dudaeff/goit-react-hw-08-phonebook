@@ -1,14 +1,18 @@
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { useAuth } from 'hooks';
+import { Hero, HeroTitle } from './Home.styled';
 
 const HomePage = () => {
   const { user, isLoggedIn } = useAuth();
 
   return (
-    <section>
-      <h1>Welcome to Phonebook, {user.name}!</h1>
+    <Hero>
+      <HeroTitle>
+        Welcome to Phonebook{user.name && ', '}
+        {user.name && user.name}!
+      </HeroTitle>
       {!isLoggedIn && <AuthNav />}
-    </section>
+    </Hero>
   );
 };
 

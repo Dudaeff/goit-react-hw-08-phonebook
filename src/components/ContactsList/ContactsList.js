@@ -1,10 +1,32 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal } from '@mui/material';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useVisibleContacts } from 'hooks';
 import { deleteContact } from 'redux/contacts';
 import { updateContact } from 'redux/contacts/operations';
 import { UpdateContactForm } from 'components/UpdateContactForm/UpdateContactForm';
+import {
+  ContactsDeleteBtn,
+  ContactWrapper,
+  ContactsList,
+  ContactsListItem,
+  ContactsUpdateBtn,
+  ContactsInfo,
+} from './ContactsList.styled';
+
+const notify = () =>
+  toast('This contact is already in your contacts!', {
+    position: 'top-right',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  });
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -35,8 +57,7 @@ export const ContactList = () => {
         contact.name.toLowerCase() === form.elements.name.value.toLowerCase()
     );
 
-    if (isAlreadyInContacts)
-      return alert('This contact is already in your contacts.');
+    if (isAlreadyInContacts) return notify();
 
     visibleContacts.forEach(({ id, name, number }) => {
       if (id === contactId) {
@@ -60,26 +81,34 @@ export const ContactList = () => {
 
   return (
     <>
-      <ul>
+      <ContactsList>
         {visibleContacts &&
           visibleContacts.map(({ id, name, number }) => {
             return (
-              <li key={id}>
-                <p>{name}: </p>
-                <p>{number}</p>
-                <button type="button" onClick={() => handleUpdate(id)}>
-                  Update
-                </button>
-                <button
-                  type="button"
-                  onClick={() => dispatch(deleteContact(id))}
-                >
-                  Delete
-                </button>
-              </li>
+              <ContactsListItem key={id}>
+                <ContactWrapper>
+                  <ContactsInfo>{name}: </ContactsInfo>
+                  <ContactsInfo>{number}</ContactsInfo>
+                </ContactWrapper>
+                <ContactWrapper>
+                  <ContactsUpdateBtn
+                    type="button"
+                    onClick={() => handleUpdate(id)}
+                  >
+                    Update
+                  </ContactsUpdateBtn>
+                  <ContactsDeleteBtn
+                    type="button"
+                    onClick={() => dispatch(deleteContact(id))}
+                  >
+                    Delete
+                  </ContactsDeleteBtn>
+                </ContactWrapper>
+              </ContactsListItem>
             );
           })}
-      </ul>
+      </ContactsList>
+
       <Modal open={isModalOpen} onClose={handleClose}>
         <>
           <UpdateContactForm onSubmit={handleSubmit} />

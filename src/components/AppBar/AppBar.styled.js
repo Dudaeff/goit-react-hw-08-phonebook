@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from 'components/CommonStyles/Variables';
 
 const Header = styled.header`
   display: flex;
@@ -7,9 +8,16 @@ const Header = styled.header`
   padding: 0 15px;
   height: 50px;
   margin-bottom: 10px;
-  border-bottom: 2px solid black;
   border-radius: 5px;
-  box-shadow: 0 1px 3px gray;
+  box-shadow: 0 1px 3px ${colors.accent};
+
+  @media screen and (min-width: 768px) {
+    height: 60px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 80px;
+  }
 `;
 
 export { Header };

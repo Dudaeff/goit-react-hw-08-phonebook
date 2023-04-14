@@ -4,9 +4,14 @@ import { Modal } from '@mui/material';
 import { useIsLoading } from 'hooks';
 import { useError } from 'hooks';
 import { fetchContacts } from 'redux/contacts';
-import { ContactList } from '../components/ContactList/ContactList';
+import { ContactList } from '../components/ContactsList/ContactsList';
 import { AddContactForm } from '../components/AddContactForm/AddContactForm';
 import { Filter } from '../components/Filter/Filter';
+import {
+  AddContactBtn,
+  ContactsActionsWrapper,
+  ContactsTitle,
+} from './Contacts.styled';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -33,11 +38,13 @@ const ContactsPage = () => {
 
   return (
     <>
-      <button type="button" onClick={() => setIsModalOpen(true)}>
-        Add new contact
-      </button>
-      <h2>Contacts</h2>
-      <Filter />
+      <ContactsActionsWrapper>
+        <Filter />
+        <AddContactBtn type="button" onClick={() => setIsModalOpen(true)}>
+          Add new contact
+        </AddContactBtn>
+      </ContactsActionsWrapper>
+      <ContactsTitle>Contacts</ContactsTitle>
       {error && <p>{error.massage}</p>}
       {isLoading ? <p>Loading...</p> : <ContactList />}
       <Modal open={isModalOpen} onClose={handleClose}>

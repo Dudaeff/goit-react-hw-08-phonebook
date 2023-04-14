@@ -1,3 +1,9 @@
+import {
+  FormList,
+  FormListButton,
+  FormListInput,
+  FormListLabel,
+} from 'components/CommonStyles/FormList.styled';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
@@ -20,19 +26,28 @@ export const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Username
-        <input type="text" name="name" required />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" required />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" required />
-      </label>
-      <button type="submit">Register</button>
+      <FormList>
+        <li>
+          <FormListLabel>
+            Name:
+            <FormListInput type="text" name="name" required />
+          </FormListLabel>
+        </li>
+        <li>
+          <FormListLabel>
+            Email:
+            <FormListInput type="email" name="email" required />
+          </FormListLabel>
+        </li>
+        <li>
+          <FormListLabel>
+            Password:
+            <FormListInput type="password" name="password" required />
+          </FormListLabel>
+        </li>
+      </FormList>
+
+      <FormListButton type="submit">Signup</FormListButton>
     </form>
   );
 };
