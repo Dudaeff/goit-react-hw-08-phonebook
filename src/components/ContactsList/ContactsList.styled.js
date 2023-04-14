@@ -65,6 +65,11 @@ const ContactsUpdateBtn = styled(Button)`
   width: 50px;
   color: green;
 
+  &:hover,
+  :focus {
+    color: ${colors.text};
+  }
+
   @media screen and (min-width: 768px) {
     width: 80px;
   }
@@ -77,6 +82,11 @@ const ContactsUpdateBtn = styled(Button)`
 const ContactsDeleteBtn = styled(Button)`
   width: 50px;
   color: red;
+
+  &:hover,
+  :focus {
+    color: ${colors.text};
+  }
 
   @media screen and (min-width: 768px) {
     width: 80px;

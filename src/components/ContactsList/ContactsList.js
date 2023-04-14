@@ -82,7 +82,7 @@ export const ContactList = () => {
   return (
     <>
       <ContactsList>
-        {visibleContacts &&
+        {visibleContacts.length > 0 ? (
           visibleContacts.map(({ id, name, number }) => {
             return (
               <ContactsListItem key={id}>
@@ -106,7 +106,12 @@ export const ContactList = () => {
                 </ContactWrapper>
               </ContactsListItem>
             );
-          })}
+          })
+        ) : (
+          <li>
+            <b>There is no contacts while.</b>
+          </li>
+        )}
       </ContactsList>
 
       <Modal open={isModalOpen} onClose={handleClose}>

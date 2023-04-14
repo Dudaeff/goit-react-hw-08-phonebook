@@ -5,7 +5,7 @@ const selectContacts = state => state.contacts.items;
 
 const selectIsLoading = state => state.contacts.isLoading;
 
-const selectError = state => state.contacts.error;
+const selectContactsError = state => state.contacts.error;
 
 const selectVisibleContacts = createSelector(
   [selectContacts, selectFilterValue],
@@ -16,4 +16,9 @@ const selectVisibleContacts = createSelector(
   }
 );
 
-export { selectContacts, selectIsLoading, selectError, selectVisibleContacts };
+export {
+  selectContacts,
+  selectIsLoading,
+  selectContactsError,
+  selectVisibleContacts,
+};

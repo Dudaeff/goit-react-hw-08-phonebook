@@ -52,7 +52,6 @@ const FormListInput = styled.input`
   border-radius: 4px;
   border: 1px solid ${colors.accent};
   background-color: transparent;
-  outline: none;
 `;
 
 const FormListButton = styled(Button)`

@@ -1,4 +1,10 @@
 import { useSelector } from 'react-redux';
-import { selectError } from 'redux/contacts/selectors';
+import { selectAuthError } from 'redux/auth/selectors';
+import { selectContactsError } from 'redux/contacts/selectors';
 
-export const useError = () => useSelector(selectError);
+export const useError = () => {
+  return {
+    contactsError: useSelector(selectContactsError),
+    authError: useSelector(selectAuthError),
+  };
+};
