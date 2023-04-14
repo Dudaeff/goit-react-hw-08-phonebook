@@ -10,6 +10,7 @@ const FilterWrapper = styled.div`
 
 const FilterLabel = styled.label`
   font-size: ${font.sizeMobile};
+  max-width: 180px;
 
   @media screen and (min-width: 768px) {
     font-size: ${font.sizeTab};

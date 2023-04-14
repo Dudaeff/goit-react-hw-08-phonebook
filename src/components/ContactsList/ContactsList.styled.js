@@ -9,9 +9,14 @@ const ContactsList = styled.ul`
 
   @media screen and (min-width: 480px) {
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 45px;
+    justify-content: flex-start;
   }
 `;
 
@@ -28,14 +33,17 @@ const ContactsListItem = styled.li`
 
   @media screen and (min-width: 480px) {
     flex-direction: column;
-    row-gap: 5px;
-
     width: 200px;
+    row-gap: 5px;
     margin: 0;
   }
 
+  @media screen and (min-width: 768px) {
+    width: 330px;
+  }
+
   @media screen and (min-width: 1200px) {
-    width: 300px;
+    width: 350px;
   }
 `;
 
