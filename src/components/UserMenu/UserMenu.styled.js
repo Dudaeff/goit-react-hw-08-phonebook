@@ -4,8 +4,8 @@ import { colors, font } from 'components/CommonStyles/Variables';
 const UserEmailText = styled.p`
   font-size: ${font.sizeMobile};
   padding: 2px;
-  box-shadow: 0 0 5px ${colors.accent};
-  border-radius: 8px;
+  border-bottom: 1px solid ${colors.accent};
+  border-radius: 0;
 
   @media screen and (min-width: 768px) {
     font-size: ${font.sizeTab};
