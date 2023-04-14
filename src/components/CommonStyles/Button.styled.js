@@ -4,6 +4,7 @@ import { colors, font } from './Variables';
 const Button = styled.button`
   background-color: transparent;
   font-size: ${font.sizeMobile};
+  padding: 5px 10px;
   color: ${colors.text};
   transition: color 250ms ease-out;
 

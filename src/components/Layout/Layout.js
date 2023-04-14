@@ -7,14 +7,16 @@ import { Section } from './Layout.styled';
 
 export const Layout = () => {
   return (
-    <Wrapper>
+    <>
       <AppBar />
-      <Section>
-        <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>
-      </Section>
-      <ToastContainer />
-    </Wrapper>
+      <Wrapper>
+        <Section>
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
+        </Section>
+        <ToastContainer />
+      </Wrapper>
+    </>
   );
 };

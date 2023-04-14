@@ -5,11 +5,11 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
+  width: 100%;
   height: 50px;
   margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px ${colors.accent};
+  box-shadow: 0px 1px 0 1px blue, 0px 2px 0 blue, 0px 3px 0 ${colors.accent},
+    0px 4px 0 ${colors.accent};
 
   @media screen and (min-width: 768px) {
     height: 60px;
@@ -20,4 +20,24 @@ const Header = styled.header`
   }
 `;
 
-export { Header };
+const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  padding: 0 15px;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 738px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+  }
+`;
+
+export { Header, HeaderWrapper };

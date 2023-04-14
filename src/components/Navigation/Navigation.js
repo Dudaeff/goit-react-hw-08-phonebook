@@ -11,9 +11,11 @@ export const Navigation = () => {
         <li>
           <StyledLink to="/">Home</StyledLink>
         </li>
-        <li>
-          {isLoggedIn && <StyledLink to="/contacts">Contacts</StyledLink>}
-        </li>
+        {isLoggedIn && (
+          <li>
+            <StyledLink to="/contacts">Contacts</StyledLink>
+          </li>
+        )}
       </NavigationList>
     </nav>
   );
