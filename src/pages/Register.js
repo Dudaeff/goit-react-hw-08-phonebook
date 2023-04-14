@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useError } from 'hooks';
@@ -18,11 +18,9 @@ const notify = () =>
 
 const RegisterPage = () => {
   const { authError } = useError();
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setError(authError);
-    if (error) notify();
+    if (authError === 'Request failed with status code 400') notify();
   }, [authError]);
 
   return <RegisterForm />;
