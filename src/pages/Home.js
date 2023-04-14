@@ -8,8 +8,8 @@ const HomePage = () => {
   return (
     <Hero>
       <HeroTitle>
-        Welcome to Phonebook{user.name && ', '}
-        {user.name && user.name}!
+        Welcome to Phonebook{user?.name && ', '}
+        {user?.name && user?.name}!
       </HeroTitle>
       {!isLoggedIn && <AuthNav />}
     </Hero>

@@ -12,7 +12,7 @@ export const UserMenu = () => {
   return (
     <NavigationList>
       <li>
-        <UserEmailText>Email: {user.email}</UserEmailText>
+        <UserEmailText>Email: {user?.email}</UserEmailText>
       </li>
       <li>
         <Button type="button" onClick={() => dispatch(logOut())}>
