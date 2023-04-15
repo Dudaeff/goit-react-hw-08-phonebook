@@ -23,12 +23,16 @@ const Header = styled.header`
 const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 250px;
+  width: 260px;
+  margin: 0 auto;
   padding: 0 15px;
+
+  @media screen and (min-width: 290px) {
+    width: 380px;
+  }
 
   @media screen and (min-width: 480px) {
     width: 480px;
-    margin: 0 auto;
   }
 
   @media screen and (min-width: 768px) {

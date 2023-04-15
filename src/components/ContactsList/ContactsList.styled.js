@@ -23,6 +23,7 @@ const ContactsList = styled.ul`
 const ContactsListItem = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-bottom: 5px;
   border-bottom: 1px solid ${colors.accent};
 

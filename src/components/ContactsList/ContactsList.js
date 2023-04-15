@@ -109,7 +109,7 @@ export const ContactList = () => {
           })
         ) : (
           <li>
-            <b>There is no contacts while.</b>
+            <b>Not found.</b>
           </li>
         )}
       </ContactsList>
